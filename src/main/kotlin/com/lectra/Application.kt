@@ -5,12 +5,15 @@ import com.azure.storage.blob.BlobContainerClientBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.*
 import java.io.ByteArrayInputStream
 
 @SpringBootApplication
+// @EnableJpaRepositories(basePackages = ["com.lectra.jpa"])
+@EnableJdbcRepositories(basePackages = ["com.lectra.jdbc"])
 class Application
 
 fun main() {
