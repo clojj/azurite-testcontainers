@@ -1,5 +1,4 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lectra</groupId>
@@ -13,9 +12,9 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <kotlin.version>1.3.72</kotlin.version>
 
-        <lib.spring-boot.version>2.3.0.RELEASE</lib.spring-boot.version>
-        <lib.azure-storage-blob.version>12.6.1</lib.azure-storage-blob.version>
-        <lib.testcontainers.version>1.14.1</lib.testcontainers.version>
+        <lib.spring-boot.version>2.3.1.RELEASE</lib.spring-boot.version>
+        <lib.azure-storage-blob.version>12.7.0</lib.azure-storage-blob.version>
+        <lib.testcontainers.version>1.14.3</lib.testcontainers.version>
     </properties>
 
     <dependencyManagement>
@@ -48,16 +47,44 @@
             <artifactId>azure-storage-blob</artifactId>
             <version>${lib.azure-storage-blob.version}</version>
         </dependency>
+        <dependency>
+            <scope>compile</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+
+<!--
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+-->
+        <dependency>
+            <scope>compile</scope>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>8.3.1.jre11-preview</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mssqlserver</artifactId>
+            <version>1.14.3</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
             <exclusions>
+<!--
                 <exclusion>
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
                 </exclusion>
+-->
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
                     <artifactId>junit-vintage-engine</artifactId>

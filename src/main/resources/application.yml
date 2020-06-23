@@ -1,3 +1,7 @@
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: debug
+
 azure:
   storage:
     default-endpoints-protocol: ${AZURE_STORAGE_PROTOCOL:http}
